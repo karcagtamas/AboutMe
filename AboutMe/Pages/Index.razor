@@ -1,7 +1,73 @@
 ﻿@page "/"
+@using AboutMe.Models
 
-<h1>Hello, world!</h1>
+<div id="page">
+    <AboutMeNavigator></AboutMeNavigator>
+    <div>
+        <div>
+            @foreach (var data in Data)
+            {
+                @if (!data.IsAddress)
+                {
+                    <div>
+                        <strong>@data.Title:</strong> @data.Value
+                    </div>
+                }
+                else
+                {
+                    <div>
+                        <a href="@data.Value">@data.Title</a>
+                    </div>
+                }
+            }
+        </div>
+        <div>
+            <img />
+        </div>
+    </div>
+</div>
 
-Welcome to your new app.
+@code {
 
-<SurveyPrompt Title="How is Blazor working for you?"/>
+    public List<GeneralData> Data { get; set; } = new List<GeneralData>()
+    {
+        new GeneralData
+        {
+            Title = "Address",
+            Value = "9081 Győrújbarát László street 120",
+        },
+        new GeneralData
+        {
+            Title = "Tel",
+            Value = "+36 30 63 90 722",
+        },
+        new GeneralData
+        {
+            Title = "E-mail",
+            Value = "karcagtamas@outlook.com",
+        },
+        new GeneralData
+        {
+            Title = "Birthday",
+            Value = "1999. 07. 26.",
+        },
+        new GeneralData
+        {
+            Title = "Birthplace",
+            Value = "Győr",
+        },
+        new GeneralData
+        {
+            Title = "Github",
+            Value = "https://github.com/karcagtamas",
+            IsAddress = true
+        },
+        new GeneralData
+        {
+            Title = "Facebook",
+            Value = "https://facebook.com/karcagtamas",
+            IsAddress = true
+        }
+    };
+
+}

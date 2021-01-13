@@ -1,6 +1,6 @@
 #navigator {
     display: flex;
-    padding: 0.6rem;
+    padding: 0.4rem;
     flex-direction: row;
 }
 
@@ -9,8 +9,8 @@
 }
 
 #navigator .nav-el-frame .nav-el {
-    padding: 0.4rem;
-    font-size: 1.6rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 1.2rem;
     transition-duration: 0.5s;
     text-align: center;
     color: black;

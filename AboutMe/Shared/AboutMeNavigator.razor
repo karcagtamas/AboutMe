@@ -1,5 +1,4 @@
 @using AboutMe.Models
-
 <div id="navigator">
     @foreach (var el in Elements)
     {
@@ -13,11 +12,11 @@
 
 @code {
 
-    public List<NavigatorElement> Elements { get; set; } = new List<NavigatorElement>();
+    public List<NavigatorElement> Elements { get; set; } = new();
 
     protected override void OnInitialized()
     {
-        Elements = NavigatorManager.NavigatorElements;
+        Elements = NavigatorManager.AboutMeNavigatorElements;
     }
 
 }
