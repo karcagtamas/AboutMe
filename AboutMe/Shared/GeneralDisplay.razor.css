@@ -1,0 +1,15 @@
+.row-obj {
+    margin: 0.8rem 0.4rem;
+    border-bottom: 1px dotted gray;
+    display: flex;
+    flex-direction: row;
+    padding: 0 0.4rem;
+}
+
+.row-obj .part {
+    flex-grow: 1;
+}
+
+.row-obj .key-part {
+    width: 50%;
+}

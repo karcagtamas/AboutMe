@@ -1,0 +1,27 @@
+@using AboutMe.Models
+<div class="row-obj">
+    <div class="key-part">
+        @if (!Data.IsAddress)
+        {
+            <strong>@Data.Title:</strong>
+        }
+        else
+        {
+            <a href="@Data.Value">@Data.Title</a>
+        }
+    </div>
+    <div class="part">
+        @if (!Data.IsAddress)
+        {
+            @Data.Value
+        }
+    </div>
+</div>
+
+
+@code {
+
+    [Parameter]
+    public GeneralData Data { get; set; }
+
+}

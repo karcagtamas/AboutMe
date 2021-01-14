@@ -4,18 +4,23 @@
     {
         <div class="nav-el-frame">
             <NavLink class="nav-link" href="@el.Path">
-                <div class="nav-el">@el.Name</div>
+                <div class="@(el.IsCurrent(Path) ? "nav-el current" : "nav-el")">@el.Name</div>
             </NavLink>
         </div>
     }
 </div>
 
 @code {
+    
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
 
-    public List<NavigatorElement> Elements { get; set; } = new();
+    private List<NavigatorElement> Elements { get; set; } = new();
+    private string Path { get; set; }
 
     protected override void OnInitialized()
     {
+        this.Path = $"/{NavigationManager.ToBaseRelativePath(NavigationManager.Uri)}";
         Elements = NavigatorManager.AboutMeNavigatorElements;
     }
 

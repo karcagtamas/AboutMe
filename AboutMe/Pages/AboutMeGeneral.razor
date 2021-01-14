@@ -1,37 +1,26 @@
 ﻿@page "/"
 @using AboutMe.Models
 
-<div id="page">
+<div id="about">
     <AboutMeNavigator></AboutMeNavigator>
-    <div>
-        <div>
+    <div class="main">
+        <div class="section">
             @foreach (var data in Data)
             {
-                @if (!data.IsAddress)
-                {
-                    <div>
-                        <strong>@data.Title:</strong> @data.Value
-                    </div>
-                }
-                else
-                {
-                    <div>
-                        <a href="@data.Value">@data.Title</a>
-                    </div>
-                }
+                <GeneralDisplay Data="data"></GeneralDisplay>
             }
         </div>
-        <div>
-            <img />
+        <div class="section image-section">
+            <img src="/images/Me.png" alt="Karcag Tamas"/>
         </div>
     </div>
 </div>
 
 @code {
 
-    public List<GeneralData> Data { get; set; } = new List<GeneralData>()
+    public List<GeneralData> Data { get; set; } = new()
     {
-        new GeneralData
+        new GeneralData()
         {
             Title = "Address",
             Value = "9081 Győrújbarát László street 120",
@@ -66,6 +55,12 @@
         {
             Title = "Facebook",
             Value = "https://facebook.com/karcagtamas",
+            IsAddress = true
+        },
+        new GeneralData
+        {
+            Title = "Twitter",
+            Value = "https://twitter.com/karcagtamas",
             IsAddress = true
         }
     };
